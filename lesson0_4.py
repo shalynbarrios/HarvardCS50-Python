@@ -18,7 +18,7 @@ hello(name)
 name = input("What's your name? ")
 
 def hello(person: str) -> None: # `person` is the local parameter.
-    greeting = "Hello " + person # `person` holds the value passed from the global `name`
+    greeting = "Hello " + person
     print(greeting)
 
 hello(name)
