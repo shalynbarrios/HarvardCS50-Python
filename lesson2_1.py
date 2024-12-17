@@ -73,7 +73,7 @@ students = [
 
 room = 2
 
-if room > 0:
+while room > 0: # check if there's room for a new student
     print(f"{room} room(s) left.")
     # prompt the user for the new student's details
     ask_name = input("What is the student's name? ")
