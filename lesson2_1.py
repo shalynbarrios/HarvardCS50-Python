@@ -87,5 +87,4 @@ if room > 0:
 for student in students:
     print(student)
 
-
-# what if we wanted to replace a value?
+# what if we wanted to replace a value in a key value pair?
