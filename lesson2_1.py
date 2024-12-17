@@ -1,22 +1,27 @@
-# Let's take a closer look at data
-# specifically, lists
+# let's take a closer look at data types
+# ----------------------------
+# lists!
+# ----------------------------
 
 students = ["Hermione", "Harry", "Ron"]
 
-# A list of 3 strings!
+# this is a list of 3 strings!
 
-print(students[0])  # Prints the element at index 0 in the list `students`, which is "Hermione".
+print(students[0])  # this prints the element at index 0 in the list `students`, which is the string "Hermione"
 
-# Iterating through the list
-for student in students:  # This will iterate over the list and print each string.
-    print(student)  # Using the variable `student` to represent each element.
+# to iterate through the list...
+for student in students:  # this will iterate over the list and print each string.
+    print(student)  # using the variable `student` to represent each element.
 
-# If we need both the index and the value:
+# if we need both the index and the value:
 for i in range(len(students)):  # `range` expects an integer, so we use `len()` to get the length of the list.
     student = students[i]
-    print(i, student)  # Prints the index and the corresponding value.
+    print(i, student)  # prints the index and the corresponding value at that index
 
-# Let's explore another data type: dictionaries (or "dicts")
+# let's explore another data type
+# ----------------------------
+# dictionaries
+# ----------------------------
 
 # A dictionary is like a human dictionary:
 # It maps something to something else (key-value pairs).
@@ -28,29 +33,33 @@ students = {
     "Ron": "Gryffindor"
 }
 
-# To access a value using its key:
-print(students["Hermione"])  # Prints the value associated with the key "Hermione".
+# we can access a value using its key:
+print(students["Hermione"])  # prints the value associated with the key "Hermione", which is "Gryffindor"
 
-# How can we loop through a dictionary?
+# how can we loop through a dictionary?
+# much like a list...
 
 for student in students:
-    print(student)  # This will print the keys.
+    print(student)  # this will print the keys of the stated dictionary
 
-# To print both the key and the value:
+# to print both the key and the value:
 for student in students:
-    print(student, students[student])  # Prints the key and its corresponding value.
+    print(student, students[student])  # prints the key and its corresponding value
 
-# Alternatively, we can make it more readable:
+# alternatively, we can make it more readable:
 for student in students:
     house = students[student]
-    print(student, house)  # Stores the value in a variable for clarity.
+    print(student, house)  # this stores the value in a variable
+    # the key-value pair in this case is a student-house pair
 
-# Formatting the output to look prettier in the terminal:
+# formatting the output to look prettier in the terminal:
 for student in students:
-    print(student, students[student], sep=", ")  # Separates the key and value with a comma.
+    print(student, students[student], sep=", ")  # separates the key and value with a comma
 
 
-# Let's consider a list of dictionaries representing students
+# ----------------------------
+# Let's consider the following problem
+# ----------------------------
 
 students = [
     {"name": "Hermione", "house": "Gryffindor", "patronus": "Otter"},
@@ -58,14 +67,15 @@ students = [
     {"name": "Ron", "house": "Gryffindor", "patronus": "Dog"}
 ]
 
-# Let's say we want to add a new student
-# We will ask the user for the student's name, house, and patronus
-# Assume there is room for only one more student
+# let's say we want to add a new student
+# we will ask the user for the student's name, house, and patronus
+# assume there is room for only two more students
 
-room = 1
+room = 2
 
 if room > 0:
-    # Prompt the user for the new student's details
+    print(f"{room} room(s) left.")
+    # prompt the user for the new student's details
     ask_name = input("What is the student's name? ")
     ask_house = input("What is the student's house? ")
     ask_patronus = input("What is the student's patronus? ")
@@ -77,14 +87,33 @@ if room > 0:
         "patronus": ask_patronus
     }
 
-    # Add the new student to the list
-    students.append(new_student)
+    # add the new student to the list
+    students.append(new_student) # the append function is how we can add new items to a list
 
-    # Decrease the room count
-    room -= 1
+    # decrease the room count
+    room -= 1 # remember, this is shorthand notation for room = room - 1
+if room == 0:
+    print("There are no more rooms left.")
 
-# Print the updated list of students
+# print the updated list of students
 for student in students:
-    print(student)
+    print(student) # this should correctly print the former students and new students
+
+# ----------------------------
+# How can we add and replace values in a list?
+# ----------------------------
+
+# First, how do we add a new key-value pair?
+# simple!
+new_dict = {
+
+}
+new_dict["This is a new key"] = "This is the value"
+
+print(new_dict)
 
 # what if we wanted to replace a value in a key value pair?
+
+new_dict["This is a new key"] = "This is a new value!"
+
+print(new_dict)
