@@ -1,26 +1,26 @@
-# let's take a closer look at data types
+# Let's take a closer look at data types
+
 # ----------------------------
-# lists!
+# Lists!
 # ----------------------------
 
 students = ["Hermione", "Harry", "Ron"]
 
-# this is a list of 3 strings!
+# This is a list of 3 strings!
 
-print(students[0])  # this prints the element at index 0 in the list `students`, which is the string "Hermione"
+print(students[0])  # This prints the element at index 0 in the list `students`, which is the string "Hermione".
 
-# to iterate through the list...
-for student in students:  # this will iterate over the list and print each string.
-    print(student)  # using the variable `student` to represent each element.
+# To iterate through the list...
+for student in students:  # This will iterate over the list and print each string.
+    print(student)  # Using the variable `student` to represent each element.
 
-# if we need both the index and the value:
+# If we need both the index and the value:
 for i in range(len(students)):  # `range` expects an integer, so we use `len()` to get the length of the list.
     student = students[i]
-    print(i, student)  # prints the index and the corresponding value at that index
+    print(i, student)  # Prints the index and the corresponding value at that index.
 
-# let's explore another data type
 # ----------------------------
-# dictionaries
+# Dictionaries
 # ----------------------------
 
 # A dictionary is like a human dictionary:
@@ -33,29 +33,27 @@ students = {
     "Ron": "Gryffindor"
 }
 
-# we can access a value using its key:
-print(students["Hermione"])  # prints the value associated with the key "Hermione", which is "Gryffindor"
+# We can access a value using its key:
+print(students["Hermione"])  # Prints the value associated with the key "Hermione", which is "Gryffindor".
 
-# how can we loop through a dictionary?
-# much like a list...
+# How can we loop through a dictionary?
+# Much like a list...
 
 for student in students:
-    print(student)  # this will print the keys of the stated dictionary
+    print(student)  # This will print the keys of the stated dictionary.
 
-# to print both the key and the value:
+# To print both the key and the value:
 for student in students:
-    print(student, students[student])  # prints the key and its corresponding value
+    print(student, students[student])  # Prints the key and its corresponding value.
 
-# alternatively, we can make it more readable:
+# Alternatively, we can make it more readable:
 for student in students:
     house = students[student]
-    print(student, house)  # this stores the value in a variable
-    # the key-value pair in this case is a student-house pair
+    print(student, house)  # This stores the value in a variable.
 
-# formatting the output to look prettier in the terminal:
+# Formatting the output to look prettier in the terminal:
 for student in students:
-    print(student, students[student], sep=", ")  # separates the key and value with a comma
-
+    print(student, students[student], sep=", ")  # Separates the key and value with a comma.
 
 # ----------------------------
 # Let's consider the following problem
@@ -67,53 +65,106 @@ students = [
     {"name": "Ron", "house": "Gryffindor", "patronus": "Dog"}
 ]
 
-# let's say we want to add a new student
-# we will ask the user for the student's name, house, and patronus
-# assume there is room for only two more students
+# Let's say we want to add a new student.
+# We will ask the user for the student's name, house, and patronus.
+# Assume there is room for only two more students.
 
 room = 2
 
-while room > 0: # check if there's room for a new student
+while room > 0:  # Check if there's room for a new student.
     print(f"{room} room(s) left.")
-    # prompt the user for the new student's details
+    # Prompt the user for the new student's details.
     ask_name = input("What is the student's name? ")
     ask_house = input("What is the student's house? ")
     ask_patronus = input("What is the student's patronus? ")
 
-    # Create a new student dictionary
+    # Create a new student dictionary.
     new_student = {
         "name": ask_name,
         "house": ask_house,
         "patronus": ask_patronus
     }
 
-    # add the new student to the list
-    students.append(new_student) # the append function is how we can add new items to a list
+    # Add the new student to the list.
+    students.append(new_student)  # The `append` function is how we can add new items to a list.
 
-    # decrease the room count
-    room -= 1 # remember, this is shorthand notation for room = room - 1
+    # Decrease the room count.
+    room -= 1  # Remember, this is shorthand notation for `room = room - 1`.
+
 if room == 0:
     print("There are no more rooms left.")
 
-# print the updated list of students
+# Print the updated list of students.
 for student in students:
-    print(student) # this should correctly print the former students and new students
+    print(student)  # This should correctly print the former students and new students.
 
 # ----------------------------
-# How can we add and replace values in a list?
+# Adding and Replacing Values in a Dictionary
 # ----------------------------
 
-# First, how do we add a new key-value pair?
-# simple!
-new_dict = {
+# First, how do we add a new key-value pair? simple!
+new_dict = {}
 
-}
 new_dict["This is a new key"] = "This is the value"
-
 print(new_dict)
 
-# what if we wanted to replace a value in a key value pair?
-
+# What if we wanted to replace a value in a key-value pair?
 new_dict["This is a new key"] = "This is a new value!"
-
 print(new_dict)
+
+# What if we have a key-value pair but no value (perhaps yet)?
+# ----------------------------
+# None
+# ----------------------------
+
+# Let me introduce the None keyword.
+
+# Example of None
+x = None  # x is initialized with no value.
+if x is None:
+    print("x has no value!")
+
+# The None keyword in Python represents the absence of a value or a null value.
+# It is often used to initialize variables or indicate a function does not return anything.
+
+students = [
+    {"name": "Hermione", "house": "Gryffindor", "patronus": "Otter"},
+    {"name": "Harry", "house": "Gryffindor", "patronus": "Stag"},
+    {"name": "Ron", "house": "Gryffindor", "patronus": "Dog"},
+    {"name": "Draco", "house": "Slytherin", "patronus": None}  # Draco does not have a patronus.
+    # We can say "none" in English, but `None` lets Python know there is truly no value for this key.
+]
+
+for student in students:  # Will run through our list.
+    print(student["name"])  # Within each iteration, we ask for the value of the key "name".
+
+# What if we wanted the house of each student?
+
+for student in students: 
+    print(student["house"]) 
+
+# What if we wanted the patronuses?
+
+for student in students: 
+    print(student["patronus"]) 
+
+# I think you get the point - first we have to iterate through each element of the list,
+# then we access the desired value with the key.
+
+# What if we want to print the name, house, and patronus?
+# As we discussed in Lesson 0, `print` can take multiple arguments.
+
+for student in students: 
+    print(student["name"], student["house"], student["patronus"], sep=", ") 
+
+# At the end of the day, dictionaries are much like those in the real world.
+# Instead of words to definitions, it's keys to values.
+
+# ----------------------------
+# Summary
+# ----------------------------
+
+# - Lists are ordered collections of elements.
+# - Dictionaries map keys to values.
+# - Nested data structures combine lists and dictionaries.
+# - The None keyword signifies no value.
