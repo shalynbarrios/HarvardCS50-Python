@@ -265,7 +265,7 @@ for i in range(5):
 # And that is a great question. Remember, the pass statement is a placeholder
 # And recall that empty functions are not allowed in Python
 
-# But let's say you are sketching out a piece of your program but haven't quite figured out the logic yet
+# So let's say you are sketching out a piece of your program but haven't quite figured out the logic yet
 
 def function_i_am_working_on():
     pass
